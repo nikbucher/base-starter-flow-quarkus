@@ -1,5 +1,6 @@
 package com.example.starter.base;
 
+import com.vaadin.flow.i18n.I18NProvider;
 import jakarta.inject.Inject;
 
 import com.vaadin.flow.component.Key;
@@ -21,11 +22,11 @@ public class MainView extends VerticalLayout {
 
     public MainView() {
         // Use TextField for standard text input
-        TextField textField = new TextField("Your name");
+        TextField textField = new TextField(getTranslation("Your name"));
         textField.addThemeName("bordered");
 
         // Button click listeners can be defined as lambda expressions
-        Button button = new Button("Say hello", e -> {
+        Button button = new Button(getTranslation("Say hello"), e -> {
             add(new Paragraph(greetService.greet(textField.getValue())));
         });
 
